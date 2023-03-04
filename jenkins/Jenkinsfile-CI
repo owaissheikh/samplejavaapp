@@ -8,7 +8,7 @@ pipeline {
 		sh script: '/opt/maven/bin/mvn compile'
            }
         }
-        stage('codereview-pmd') {
+        stage('codereview') {
 	   steps {
                 echo 'codereview..'
 		sh script: '/opt/maven/bin/mvn -P metrics pmd:pmd'
@@ -19,7 +19,7 @@ pipeline {
                }
            }		
         }
-        stage('unit-test') {
+        stage('unittest') {
 	   steps {
                 echo 'unittest..'
 	        sh script: '/opt/maven/bin/mvn test'
